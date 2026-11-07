@@ -1,0 +1,4 @@
+{
+  "security-controls@0.1.0": ["object-authz"],
+  "security-patterns@0.1.0": ["P1-03"]
+}

@@ -1,0 +1,40 @@
+{
+  "candidateId": "RC-001",
+  "policyRef": "RP-001@1.0.0",
+  "decision": "ready",
+  "checks": {
+    "claims": "pass",
+    "evidence": "pass",
+    "findings": "pass",
+    "freshness": "pass",
+    "risks": "pass"
+  },
+  "details": {
+    "claims": [],
+    "evidence": [],
+    "findings": [],
+    "freshness": [],
+    "risks": []
+  },
+  "basis": {
+    "requiredClaims": [
+      "CLAIM-001"
+    ],
+    "evidence": [
+      "EVD-001"
+    ],
+    "changeImpact": {
+      "changed": [],
+      "unknown": [],
+      "affected": [],
+      "evidence": [],
+      "claims": []
+    },
+    "findings": [
+      "F-001"
+    ],
+    "risks": [
+      "RISK-001"
+    ]
+  }
+}

@@ -1,0 +1,334 @@
+test_critical_finding_still_blocks_with_unknown_change (test_gate_safety.GateSafetyTests.test_critical_finding_still_blocks_with_unknown_change) ... ok
+test_declared_ir_changes_invalidate_only_affected_stage (test_gate_safety.GateSafetyTests.test_declared_ir_changes_invalidate_only_affected_stage) ... 
+  test_declared_ir_changes_invalidate_only_affected_stage (test_gate_safety.GateSafetyTests.test_declared_ir_changes_invalidate_only_affected_stage) (changed='SR-004') ... FAIL
+  test_declared_ir_changes_invalidate_only_affected_stage (test_gate_safety.GateSafetyTests.test_declared_ir_changes_invalidate_only_affected_stage) (changed='CA-002') ... FAIL
+  test_declared_ir_changes_invalidate_only_affected_stage (test_gate_safety.GateSafetyTests.test_declared_ir_changes_invalidate_only_affected_stage) (changed='CMP-002') ... FAIL
+  test_declared_ir_changes_invalidate_only_affected_stage (test_gate_safety.GateSafetyTests.test_declared_ir_changes_invalidate_only_affected_stage) (changed='VC-002') ... FAIL
+test_duplicate_evidence_cannot_satisfy_at_least_two (test_gate_safety.GateSafetyTests.test_duplicate_evidence_cannot_satisfy_at_least_two) ... FAIL
+test_evidence_exact_age_boundary_is_applicable (test_gate_safety.GateSafetyTests.test_evidence_exact_age_boundary_is_applicable) ... ok
+test_expired_or_future_evidence_requires_review (test_gate_safety.GateSafetyTests.test_expired_or_future_evidence_requires_review) ... 
+  test_expired_or_future_evidence_requires_review (test_gate_safety.GateSafetyTests.test_expired_or_future_evidence_requires_review) (observed='2026-11-06T11:59:59+09:00') ... FAIL
+  test_expired_or_future_evidence_requires_review (test_gate_safety.GateSafetyTests.test_expired_or_future_evidence_requires_review) (observed='2026-11-07T12:00:01+09:00') ... FAIL
+test_invalid_age_and_timezone_are_unknown (test_gate_safety.GateSafetyTests.test_invalid_age_and_timezone_are_unknown) ... 
+  test_invalid_age_and_timezone_are_unknown (test_gate_safety.GateSafetyTests.test_invalid_age_and_timezone_are_unknown) (field='maxEvidenceAgeSeconds', value=-1) ... FAIL
+  test_invalid_age_and_timezone_are_unknown (test_gate_safety.GateSafetyTests.test_invalid_age_and_timezone_are_unknown) (field='maxEvidenceAgeSeconds', value=True) ... FAIL
+  test_invalid_age_and_timezone_are_unknown (test_gate_safety.GateSafetyTests.test_invalid_age_and_timezone_are_unknown) (field='evaluatedAt', value='2026-11-07T12:00:00') ... FAIL
+  test_invalid_age_and_timezone_are_unknown (test_gate_safety.GateSafetyTests.test_invalid_age_and_timezone_are_unknown) (field='observedAt', value='yesterday') ... FAIL
+test_missing_clock_or_observation_is_unknown_when_age_required (test_gate_safety.GateSafetyTests.test_missing_clock_or_observation_is_unknown_when_age_required) ... 
+  test_missing_clock_or_observation_is_unknown_when_age_required (test_gate_safety.GateSafetyTests.test_missing_clock_or_observation_is_unknown_when_age_required) (field='evaluatedAt') ... FAIL
+  test_missing_clock_or_observation_is_unknown_when_age_required (test_gate_safety.GateSafetyTests.test_missing_clock_or_observation_is_unknown_when_age_required) (field='observedAt') ... FAIL
+test_other_candidate_cannot_cover_missing_required_claim (test_gate_safety.GateSafetyTests.test_other_candidate_cannot_cover_missing_required_claim) ... FAIL
+test_registry_binds_environment_scope_and_dependencies (test_gate_safety.GateSafetyTests.test_registry_binds_environment_scope_and_dependencies) ... 
+  test_registry_binds_environment_scope_and_dependencies (test_gate_safety.GateSafetyTests.test_registry_binds_environment_scope_and_dependencies) (field='environment') ... FAIL
+  test_registry_binds_environment_scope_and_dependencies (test_gate_safety.GateSafetyTests.test_registry_binds_environment_scope_and_dependencies) (field='scope') ... FAIL
+  test_registry_binds_environment_scope_and_dependencies (test_gate_safety.GateSafetyTests.test_registry_binds_environment_scope_and_dependencies) (field='dependencyRefs') ... FAIL
+test_repeated_link_does_not_change_all_of_result (test_gate_safety.GateSafetyTests.test_repeated_link_does_not_change_all_of_result) ... ok
+test_risk_approver_string_does_not_override_unapproved_record (test_gate_safety.GateSafetyTests.test_risk_approver_string_does_not_override_unapproved_record) ... FAIL
+test_three_pilots_detect_ir_change_without_mutating_observation (test_gate_safety.GateSafetyTests.test_three_pilots_detect_ir_change_without_mutating_observation) ... 
+  test_three_pilots_detect_ir_change_without_mutating_observation (test_gate_safety.GateSafetyTests.test_three_pilots_detect_ir_change_without_mutating_observation) (filename='pilot_order_cancel.json') ... FAIL
+  test_three_pilots_detect_ir_change_without_mutating_observation (test_gate_safety.GateSafetyTests.test_three_pilots_detect_ir_change_without_mutating_observation) (filename='pilot_sensitive_read.json') ... FAIL
+  test_three_pilots_detect_ir_change_without_mutating_observation (test_gate_safety.GateSafetyTests.test_three_pilots_detect_ir_change_without_mutating_observation) (filename='pilot_multistage_approval.json') ... FAIL
+test_unapproved_or_retired_evidence_requires_review (test_gate_safety.GateSafetyTests.test_unapproved_or_retired_evidence_requires_review) ... 
+  test_unapproved_or_retired_evidence_requires_review (test_gate_safety.GateSafetyTests.test_unapproved_or_retired_evidence_requires_review) (status='draft') ... FAIL
+  test_unapproved_or_retired_evidence_requires_review (test_gate_safety.GateSafetyTests.test_unapproved_or_retired_evidence_requires_review) (status='reviewed') ... FAIL
+  test_unapproved_or_retired_evidence_requires_review (test_gate_safety.GateSafetyTests.test_unapproved_or_retired_evidence_requires_review) (status='retired') ... FAIL
+test_unknown_declared_change_prevents_ready (test_gate_safety.GateSafetyTests.test_unknown_declared_change_prevents_ready) ... FAIL
+
+======================================================================
+FAIL: test_declared_ir_changes_invalidate_only_affected_stage (test_gate_safety.GateSafetyTests.test_declared_ir_changes_invalidate_only_affected_stage) (changed='SR-004')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 51, in test_declared_ir_changes_invalidate_only_affected_stage
+    self.assertEqual(result['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_declared_ir_changes_invalidate_only_affected_stage (test_gate_safety.GateSafetyTests.test_declared_ir_changes_invalidate_only_affected_stage) (changed='CA-002')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 51, in test_declared_ir_changes_invalidate_only_affected_stage
+    self.assertEqual(result['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_declared_ir_changes_invalidate_only_affected_stage (test_gate_safety.GateSafetyTests.test_declared_ir_changes_invalidate_only_affected_stage) (changed='CMP-002')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 51, in test_declared_ir_changes_invalidate_only_affected_stage
+    self.assertEqual(result['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_declared_ir_changes_invalidate_only_affected_stage (test_gate_safety.GateSafetyTests.test_declared_ir_changes_invalidate_only_affected_stage) (changed='VC-002')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 51, in test_declared_ir_changes_invalidate_only_affected_stage
+    self.assertEqual(result['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_duplicate_evidence_cannot_satisfy_at_least_two (test_gate_safety.GateSafetyTests.test_duplicate_evidence_cannot_satisfy_at_least_two)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 35, in test_duplicate_evidence_cannot_satisfy_at_least_two
+    self.assertEqual(gate(doc)['decision'], 'unknown')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'unknown'
+- ready
++ unknown
+
+
+======================================================================
+FAIL: test_expired_or_future_evidence_requires_review (test_gate_safety.GateSafetyTests.test_expired_or_future_evidence_requires_review) (observed='2026-11-06T11:59:59+09:00')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 126, in test_expired_or_future_evidence_requires_review
+    self.assertEqual(result['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_expired_or_future_evidence_requires_review (test_gate_safety.GateSafetyTests.test_expired_or_future_evidence_requires_review) (observed='2026-11-07T12:00:01+09:00')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 126, in test_expired_or_future_evidence_requires_review
+    self.assertEqual(result['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_invalid_age_and_timezone_are_unknown (test_gate_safety.GateSafetyTests.test_invalid_age_and_timezone_are_unknown) (field='maxEvidenceAgeSeconds', value=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 144, in test_invalid_age_and_timezone_are_unknown
+    self.assertEqual(gate(doc, registry)['decision'], 'unknown')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'unknown'
+- ready
++ unknown
+
+
+======================================================================
+FAIL: test_invalid_age_and_timezone_are_unknown (test_gate_safety.GateSafetyTests.test_invalid_age_and_timezone_are_unknown) (field='maxEvidenceAgeSeconds', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 144, in test_invalid_age_and_timezone_are_unknown
+    self.assertEqual(gate(doc, registry)['decision'], 'unknown')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'unknown'
+- ready
++ unknown
+
+
+======================================================================
+FAIL: test_invalid_age_and_timezone_are_unknown (test_gate_safety.GateSafetyTests.test_invalid_age_and_timezone_are_unknown) (field='evaluatedAt', value='2026-11-07T12:00:00')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 144, in test_invalid_age_and_timezone_are_unknown
+    self.assertEqual(gate(doc, registry)['decision'], 'unknown')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'unknown'
+- ready
++ unknown
+
+
+======================================================================
+FAIL: test_invalid_age_and_timezone_are_unknown (test_gate_safety.GateSafetyTests.test_invalid_age_and_timezone_are_unknown) (field='observedAt', value='yesterday')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 144, in test_invalid_age_and_timezone_are_unknown
+    self.assertEqual(gate(doc, registry)['decision'], 'unknown')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'unknown'
+- ready
++ unknown
+
+
+======================================================================
+FAIL: test_missing_clock_or_observation_is_unknown_when_age_required (test_gate_safety.GateSafetyTests.test_missing_clock_or_observation_is_unknown_when_age_required) (field='evaluatedAt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 134, in test_missing_clock_or_observation_is_unknown_when_age_required
+    self.assertNotEqual(gate(doc, registry)['decision'], 'ready')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' == 'ready'
+
+======================================================================
+FAIL: test_missing_clock_or_observation_is_unknown_when_age_required (test_gate_safety.GateSafetyTests.test_missing_clock_or_observation_is_unknown_when_age_required) (field='observedAt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 134, in test_missing_clock_or_observation_is_unknown_when_age_required
+    self.assertNotEqual(gate(doc, registry)['decision'], 'ready')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' == 'ready'
+
+======================================================================
+FAIL: test_other_candidate_cannot_cover_missing_required_claim (test_gate_safety.GateSafetyTests.test_other_candidate_cannot_cover_missing_required_claim)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 69, in test_other_candidate_cannot_cover_missing_required_claim
+    self.assertEqual(gate(doc)['decision'], 'unknown')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'unknown'
+- ready
++ unknown
+
+
+======================================================================
+FAIL: test_registry_binds_environment_scope_and_dependencies (test_gate_safety.GateSafetyTests.test_registry_binds_environment_scope_and_dependencies) (field='environment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 78, in test_registry_binds_environment_scope_and_dependencies
+    self.assertEqual(result['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_registry_binds_environment_scope_and_dependencies (test_gate_safety.GateSafetyTests.test_registry_binds_environment_scope_and_dependencies) (field='scope')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 78, in test_registry_binds_environment_scope_and_dependencies
+    self.assertEqual(result['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_registry_binds_environment_scope_and_dependencies (test_gate_safety.GateSafetyTests.test_registry_binds_environment_scope_and_dependencies) (field='dependencyRefs')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 78, in test_registry_binds_environment_scope_and_dependencies
+    self.assertEqual(result['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_risk_approver_string_does_not_override_unapproved_record (test_gate_safety.GateSafetyTests.test_risk_approver_string_does_not_override_unapproved_record)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 91, in test_risk_approver_string_does_not_override_unapproved_record
+    self.assertEqual(gate(doc)['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_three_pilots_detect_ir_change_without_mutating_observation (test_gate_safety.GateSafetyTests.test_three_pilots_detect_ir_change_without_mutating_observation) (filename='pilot_order_cancel.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 105, in test_three_pilots_detect_ir_change_without_mutating_observation
+    self.assertEqual(gate(doc)['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_three_pilots_detect_ir_change_without_mutating_observation (test_gate_safety.GateSafetyTests.test_three_pilots_detect_ir_change_without_mutating_observation) (filename='pilot_sensitive_read.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 105, in test_three_pilots_detect_ir_change_without_mutating_observation
+    self.assertEqual(gate(doc)['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_three_pilots_detect_ir_change_without_mutating_observation (test_gate_safety.GateSafetyTests.test_three_pilots_detect_ir_change_without_mutating_observation) (filename='pilot_multistage_approval.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 105, in test_three_pilots_detect_ir_change_without_mutating_observation
+    self.assertEqual(gate(doc)['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_unapproved_or_retired_evidence_requires_review (test_gate_safety.GateSafetyTests.test_unapproved_or_retired_evidence_requires_review) (status='draft')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 86, in test_unapproved_or_retired_evidence_requires_review
+    self.assertEqual(gate(doc)['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_unapproved_or_retired_evidence_requires_review (test_gate_safety.GateSafetyTests.test_unapproved_or_retired_evidence_requires_review) (status='reviewed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 86, in test_unapproved_or_retired_evidence_requires_review
+    self.assertEqual(gate(doc)['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_unapproved_or_retired_evidence_requires_review (test_gate_safety.GateSafetyTests.test_unapproved_or_retired_evidence_requires_review) (status='retired')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 86, in test_unapproved_or_retired_evidence_requires_review
+    self.assertEqual(gate(doc)['decision'], 'review-required')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'review-required'
+- ready
++ review-required
+
+
+======================================================================
+FAIL: test_unknown_declared_change_prevents_ready (test_gate_safety.GateSafetyTests.test_unknown_declared_change_prevents_ready)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/behike56/01_product/api-builder/security-ir-v02-prototype/tests/test_gate_safety.py", line 58, in test_unknown_declared_change_prevents_ready
+    self.assertEqual(gate(doc)['decision'], 'unknown')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ready' != 'unknown'
+- ready
++ unknown
+
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.278s
+
+FAILED (failures=25)

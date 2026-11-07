@@ -1,0 +1,314 @@
+{
+  "schemaVersion": "0.2.0",
+  "design": {
+    "id": "order-cancel-api",
+    "revision": 3
+  },
+  "catalogs": {
+    "controls": "security-controls@0.1.0",
+    "patterns": "security-patterns@0.1.0"
+  },
+  "nodes": [
+    {
+      "id": "AST-001",
+      "kind": "Asset",
+      "status": "approved",
+      "attributes": {
+        "name": "Order",
+        "assetType": "domain-resource"
+      }
+    },
+    {
+      "id": "SR-003",
+      "kind": "SecurityRequirement",
+      "status": "approved",
+      "attributes": {
+        "statement": "Only authorized users may cancel orders",
+        "criticality": "high"
+      }
+    },
+    {
+      "id": "CMP-001",
+      "kind": "Component",
+      "status": "approved",
+      "attributes": {
+        "name": "CancelOrderService",
+        "componentType": "application-service"
+      }
+    },
+    {
+      "id": "CA-001",
+      "kind": "ControlApplication",
+      "status": "approved",
+      "attributes": {
+        "controlRef": "security-controls@0.1.0:object-authz"
+      }
+    },
+    {
+      "id": "PA-001",
+      "kind": "PatternApplication",
+      "status": "approved",
+      "attributes": {
+        "patternRef": "security-patterns@0.1.0:P1-03"
+      }
+    },
+    {
+      "id": "VC-001",
+      "kind": "VerificationCriterion",
+      "status": "approved",
+      "attributes": {
+        "statement": "Reject cross-tenant cancel requests",
+        "expectedOutcome": "denied-without-state-change"
+      }
+    },
+    {
+      "id": "RP-001",
+      "kind": "ReleasePolicy",
+      "status": "approved",
+      "attributes": {
+        "version": "1.0.0",
+        "requiredChecks": [
+          "claims",
+          "evidence",
+          "findings",
+          "risks",
+          "freshness"
+        ],
+        "blockingSeverities": [
+          "critical",
+          "high"
+        ],
+        "evidenceRegistryRequired": true,
+        "completeTraceRequired": true
+      }
+    },
+    {
+      "id": "RC-001",
+      "kind": "ReleaseCandidate",
+      "status": "approved",
+      "attributes": {
+        "artifactRevision": "build-A",
+        "designRevision": 3,
+        "environmentRef": "staging",
+        "policyRef": "RP-001@1.0.0",
+        "subject": "cancelOrder",
+        "findingsComplete": true,
+        "risksComplete": true,
+        "claimsComplete": true,
+        "changedDependenciesComplete": true
+      }
+    },
+    {
+      "id": "CLAIM-001",
+      "kind": "AssuranceClaim",
+      "status": "approved",
+      "attributes": {
+        "statement": "Order cancellation is authorized",
+        "scope": [
+          "user",
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "ARG-001",
+      "kind": "AssuranceArgument",
+      "status": "approved",
+      "attributes": {
+        "operator": "allOf",
+        "rationale": "Security test passed"
+      }
+    },
+    {
+      "id": "EVD-001",
+      "kind": "Evidence",
+      "status": "approved",
+      "attributes": {
+        "subject": "cancelOrder",
+        "revision": "build-A",
+        "environment": "staging",
+        "scope": [
+          "user",
+          "admin"
+        ],
+        "artifactRef": "ci://run/123",
+        "producerRef": "security-tests",
+        "result": "pass",
+        "dependencyRefs": [
+          "policy-1"
+        ]
+      }
+    },
+    {
+      "id": "EVA-001",
+      "kind": "EvidenceValidityAssessment",
+      "status": "approved",
+      "attributes": {
+        "status": "applicable",
+        "targetRevision": "build-A"
+      }
+    },
+    {
+      "id": "AA-001",
+      "kind": "AssuranceAssessment",
+      "status": "approved",
+      "attributes": {
+        "conclusion": "supported",
+        "assessedAt": "2026-11-02T12:00:00+09:00",
+        "targetRevision": "build-A"
+      }
+    },
+    {
+      "id": "F-001",
+      "kind": "Finding",
+      "status": "approved",
+      "attributes": {
+        "severity": "low",
+        "disposition": "resolved"
+      }
+    },
+    {
+      "id": "RISK-001",
+      "kind": "ResidualRisk",
+      "status": "approved",
+      "attributes": {
+        "treatment": "accepted",
+        "ownerRef": "security-owner",
+        "approvedBy": "security-owner"
+      }
+    },
+    {
+      "id": "TH-ORDER",
+      "kind": "ThreatScenario",
+      "status": "approved",
+      "attributes": {
+        "scenario": "Cross-tenant order cancellation"
+      }
+    },
+    {
+      "id": "VA-ORDER",
+      "kind": "VerificationActivity",
+      "status": "approved",
+      "attributes": {
+        "method": "synthetic security test",
+        "executionStatus": "passed"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "REL-001",
+      "kind": "protects",
+      "source": "SR-003",
+      "target": "AST-001"
+    },
+    {
+      "id": "REL-002",
+      "kind": "addresses",
+      "source": "CA-001",
+      "target": "SR-003"
+    },
+    {
+      "id": "REL-003",
+      "kind": "enforcedAt",
+      "source": "CA-001",
+      "target": "CMP-001"
+    },
+    {
+      "id": "REL-004",
+      "kind": "realizes",
+      "source": "PA-001",
+      "target": "CA-001"
+    },
+    {
+      "id": "REL-005",
+      "kind": "evaluates",
+      "source": "VC-001",
+      "target": "SR-003"
+    },
+    {
+      "id": "RG-001",
+      "kind": "usesReleasePolicy",
+      "source": "RC-001",
+      "target": "RP-001"
+    },
+    {
+      "id": "RG-002",
+      "kind": "requiresClaim",
+      "source": "RC-001",
+      "target": "CLAIM-001"
+    },
+    {
+      "id": "RG-003",
+      "kind": "supportedByArgument",
+      "source": "CLAIM-001",
+      "target": "ARG-001"
+    },
+    {
+      "id": "RG-004",
+      "kind": "hasPremise",
+      "source": "ARG-001",
+      "target": "EVD-001"
+    },
+    {
+      "id": "RG-005",
+      "kind": "assessesEvidence",
+      "source": "EVA-001",
+      "target": "EVD-001"
+    },
+    {
+      "id": "RG-006",
+      "kind": "forClaim",
+      "source": "EVA-001",
+      "target": "CLAIM-001"
+    },
+    {
+      "id": "RG-007",
+      "kind": "assessesClaim",
+      "source": "AA-001",
+      "target": "CLAIM-001"
+    },
+    {
+      "id": "RG-008",
+      "kind": "tracksFinding",
+      "source": "RC-001",
+      "target": "F-001"
+    },
+    {
+      "id": "RG-009",
+      "kind": "tracksRisk",
+      "source": "RC-001",
+      "target": "RISK-001"
+    },
+    {
+      "id": "PILOT-015",
+      "kind": "threatens",
+      "source": "TH-ORDER",
+      "target": "AST-001"
+    },
+    {
+      "id": "PILOT-016",
+      "kind": "mitigates",
+      "source": "CA-001",
+      "target": "TH-ORDER"
+    },
+    {
+      "id": "PILOT-017",
+      "kind": "verifies",
+      "source": "VA-ORDER",
+      "target": "VC-001"
+    },
+    {
+      "id": "PILOT-018",
+      "kind": "generatedBy",
+      "source": "EVD-001",
+      "target": "VA-ORDER"
+    },
+    {
+      "id": "PILOT-019",
+      "kind": "claimsFor",
+      "source": "CLAIM-001",
+      "target": "SR-003"
+    }
+  ]
+}

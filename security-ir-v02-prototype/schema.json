@@ -1,0 +1,801 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:security-design-ir:0.2.0-rc1",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "design",
+    "nodes",
+    "relations"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "0.2.0"
+    },
+    "design": {
+      "type": "object",
+      "required": [
+        "id",
+        "revision"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "catalogs": {
+      "type": "object"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "status",
+          "attributes"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "Asset",
+              "Assumption",
+              "AssuranceArgument",
+              "AssuranceAssessment",
+              "AssuranceClaim",
+              "Component",
+              "ControlApplication",
+              "Defeater",
+              "DesignDecision",
+              "Evidence",
+              "EvidenceValidityAssessment",
+              "Finding",
+              "PatternApplication",
+              "ReleaseCandidate",
+              "ReleaseDecision",
+              "ResidualRisk",
+              "SecurityPolicy",
+              "SecurityRequirement",
+              "ThreatScenario",
+              "VerificationActivity",
+              "VerificationCriterion",
+              "ReleasePolicy"
+            ]
+          },
+          "status": {
+            "enum": [
+              "draft",
+              "reviewed",
+              "approved",
+              "retired"
+            ]
+          },
+          "attributes": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "Asset"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "name",
+                    "assetType"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "SecurityRequirement"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "statement",
+                    "criticality"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "ThreatScenario"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "scenario"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "DesignDecision"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "decision",
+                    "rationale"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "ControlApplication"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "controlRef"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "PatternApplication"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "patternRef"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "Component"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "name",
+                    "componentType"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "VerificationCriterion"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "statement",
+                    "expectedOutcome"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "AssuranceClaim"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "statement",
+                    "scope"
+                  ],
+                  "properties": {
+                    "scope": {
+                      "type": "array",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "AssuranceArgument"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "operator",
+                    "rationale"
+                  ],
+                  "properties": {
+                    "operator": {
+                      "enum": [
+                        "allOf",
+                        "anyOf",
+                        "atLeast"
+                      ]
+                    },
+                    "threshold": {
+                      "type": "integer",
+                      "minimum": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "Evidence"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "subject",
+                    "revision",
+                    "environment",
+                    "scope",
+                    "artifactRef",
+                    "producerRef",
+                    "result"
+                  ],
+                  "properties": {
+                    "result": {
+                      "enum": [
+                        "pass",
+                        "fail",
+                        "unknown"
+                      ]
+                    },
+                    "subject": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "revision": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "environment": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "artifactRef": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "producerRef": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "scope": {
+                      "type": "array",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "dependencyRefs": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "observedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "VerificationActivity"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "method",
+                    "executionStatus"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "EvidenceValidityAssessment"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "status",
+                    "targetRevision"
+                  ],
+                  "properties": {
+                    "status": {
+                      "enum": [
+                        "applicable",
+                        "needs-review",
+                        "not-applicable",
+                        "unknown"
+                      ]
+                    },
+                    "targetRevision": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "Assumption"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "statement",
+                    "validationStatus"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "Defeater"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "description",
+                    "status",
+                    "effect"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "Finding"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "severity",
+                    "disposition"
+                  ],
+                  "properties": {
+                    "severity": {
+                      "enum": [
+                        "low",
+                        "medium",
+                        "high",
+                        "critical"
+                      ]
+                    },
+                    "disposition": {
+                      "enum": [
+                        "open",
+                        "resolved",
+                        "accepted"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "ResidualRisk"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "treatment",
+                    "ownerRef"
+                  ],
+                  "properties": {
+                    "treatment": {
+                      "enum": [
+                        "accepted",
+                        "pending",
+                        "rejected"
+                      ]
+                    },
+                    "approvedBy": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "AssuranceAssessment"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "conclusion",
+                    "assessedAt",
+                    "targetRevision"
+                  ],
+                  "properties": {
+                    "conclusion": {
+                      "enum": [
+                        "supported",
+                        "unsupported",
+                        "indeterminate",
+                        "review-required"
+                      ]
+                    },
+                    "targetRevision": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "assessedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "ReleaseCandidate"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "artifactRevision",
+                    "designRevision",
+                    "environmentRef",
+                    "policyRef",
+                    "subject",
+                    "findingsComplete",
+                    "risksComplete",
+                    "claimsComplete",
+                    "changedDependenciesComplete"
+                  ],
+                  "properties": {
+                    "subject": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "findingsComplete": {
+                      "type": "boolean"
+                    },
+                    "risksComplete": {
+                      "type": "boolean"
+                    },
+                    "requiredScope": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "changedDependencies": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "claimsComplete": {
+                      "type": "boolean"
+                    },
+                    "changedDependenciesComplete": {
+                      "type": "boolean"
+                    },
+                    "artifactRevision": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "designRevision": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "environmentRef": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "policyRef": {
+                      "type": "string",
+                      "minLength": 3
+                    },
+                    "evaluatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "ReleaseDecision"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "conclusion",
+                    "assessedAt",
+                    "policyRef"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "SecurityPolicy"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "name",
+                    "effect"
+                  ],
+                  "properties": {}
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "ReleasePolicy"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attributes": {
+                  "required": [
+                    "version",
+                    "requiredChecks",
+                    "blockingSeverities"
+                  ],
+                  "properties": {
+                    "version": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "requiredChecks": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "items": {
+                        "enum": [
+                          "claims",
+                          "evidence",
+                          "findings",
+                          "risks",
+                          "freshness"
+                        ]
+                      }
+                    },
+                    "blockingSeverities": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "items": {
+                        "enum": [
+                          "low",
+                          "medium",
+                          "high",
+                          "critical"
+                        ]
+                      }
+                    },
+                    "evidenceRegistryRequired": {
+                      "type": "boolean"
+                    },
+                    "completeTraceRequired": {
+                      "type": "boolean"
+                    },
+                    "maxEvidenceAgeSeconds": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "source",
+          "target"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1
+          },
+          "attributes": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

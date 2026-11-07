@@ -1,0 +1,20 @@
+{
+  "schemaVersion":"0.2.0",
+  "design":{"id":"order-cancel-api","revision":3},
+  "catalogs":{"controls":"security-controls@0.1.0","patterns":"security-patterns@0.1.0"},
+  "nodes":[
+    {"id":"AST-001","kind":"Asset","status":"approved","attributes":{"name":"Order","assetType":"domain-resource"}},
+    {"id":"SR-003","kind":"SecurityRequirement","status":"approved","attributes":{"statement":"Only authorized users may cancel orders","criticality":"high"}},
+    {"id":"CMP-001","kind":"Component","status":"approved","attributes":{"name":"CancelOrderService","componentType":"application-service"}},
+    {"id":"CA-001","kind":"ControlApplication","status":"approved","attributes":{"controlRef":"security-controls@0.1.0:object-authz"}},
+    {"id":"PA-001","kind":"PatternApplication","status":"approved","attributes":{"patternRef":"security-patterns@0.1.0:P1-03"}},
+    {"id":"VC-001","kind":"VerificationCriterion","status":"approved","attributes":{"statement":"Reject cross-tenant cancel requests","expectedOutcome":"denied-without-state-change"}}
+  ],
+  "relations":[
+    {"id":"REL-001","kind":"protects","source":"SR-003","target":"AST-001"},
+    {"id":"REL-002","kind":"addresses","source":"CA-001","target":"SR-003"},
+    {"id":"REL-003","kind":"enforcedAt","source":"CA-001","target":"CMP-001"},
+    {"id":"REL-004","kind":"realizes","source":"PA-001","target":"CA-001"},
+    {"id":"REL-005","kind":"evaluates","source":"VC-001","target":"SR-003"}
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "order-cancel-api": {
+    "EVD-001": {
+      "artifactRef": "ci://run/123",
+      "producerRef": "security-tests",
+      "result": "pass",
+      "subject": "cancelOrder",
+      "revision": "build-A",
+      "environment": "staging",
+      "scope": [
+        "user",
+        "admin"
+      ],
+      "dependencyRefs": [
+        "policy-1"
+      ]
+    }
+  },
+  "sensitive-record-read-api": {
+    "EVD-001": {
+      "artifactRef": "ci://run/123",
+      "producerRef": "security-tests",
+      "result": "pass",
+      "subject": "readSensitiveRecord",
+      "revision": "build-A",
+      "environment": "staging",
+      "scope": [
+        "user",
+        "admin"
+      ],
+      "dependencyRefs": [
+        "policy-1"
+      ]
+    }
+  },
+  "multistage-approval-api": {
+    "EVD-001": {
+      "artifactRef": "ci://run/123",
+      "producerRef": "security-tests",
+      "result": "pass",
+      "subject": "approveRequest",
+      "revision": "build-A",
+      "environment": "staging",
+      "scope": [
+        "user",
+        "admin"
+      ],
+      "dependencyRefs": [
+        "policy-1"
+      ]
+    },
+    "EVD-002": {
+      "artifactRef": "ci://run/123",
+      "producerRef": "security-tests",
+      "result": "pass",
+      "subject": "approveRequest",
+      "revision": "build-A",
+      "environment": "staging",
+      "scope": [
+        "user",
+        "admin"
+      ],
+      "dependencyRefs": [
+        "policy-1"
+      ]
+    }
+  }
+}

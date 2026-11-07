@@ -1,0 +1,552 @@
+{
+  "cases": [
+    {
+      "fixture": "pilot_order_cancel.json",
+      "requirements": 1,
+      "traceComplete": 1,
+      "cleanFlagged": false,
+      "cleanGate": "ready",
+      "defects": [
+        {
+          "defect": "missing_threat_control",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 0,
+          "graphFindings": []
+        },
+        {
+          "defect": "missing_evidence_origin",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 0,
+          "graphFindings": []
+        },
+        {
+          "defect": "missing_claim_requirement",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 0,
+          "graphFindings": []
+        },
+        {
+          "defect": "stale_revision",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "missing_validity_assessment",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "unverified_artifact_ref",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "critical_open_finding",
+          "detected": true,
+          "expectedGate": "blocked",
+          "gateMatchesExpected": true,
+          "gate": "blocked",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "unapproved_residual_risk",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "policy_version_mismatch",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "duplicate_evidence_vote",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "retired_evidence",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "unapproved_risk_record",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "unknown_declared_change",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "registry_environment_mismatch",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 1,
+          "graphFindings": []
+        }
+      ],
+      "staleness": [
+        {
+          "kind": "revision",
+          "detected": true,
+          "gate": "review-required"
+        },
+        {
+          "kind": "declared_dependency",
+          "detected": true,
+          "gate": "review-required"
+        },
+        {
+          "kind": "ir_requirement",
+          "detected": true,
+          "gate": "review-required"
+        },
+        {
+          "kind": "ir_boundary",
+          "detected": true,
+          "gate": "review-required"
+        }
+      ],
+      "sampleImpact": {
+        "changed": [
+          "SR-003"
+        ],
+        "unknown": [],
+        "affected": [
+          "ARG-001",
+          "CA-001",
+          "CLAIM-001",
+          "EVD-001",
+          "RC-001",
+          "SR-003",
+          "VA-ORDER",
+          "VC-001"
+        ],
+        "evidence": [
+          "EVD-001"
+        ],
+        "claims": [
+          "CLAIM-001"
+        ]
+      }
+    },
+    {
+      "fixture": "pilot_sensitive_read.json",
+      "requirements": 1,
+      "traceComplete": 1,
+      "cleanFlagged": false,
+      "cleanGate": "ready",
+      "defects": [
+        {
+          "defect": "missing_threat_control",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 0,
+          "graphFindings": []
+        },
+        {
+          "defect": "missing_evidence_origin",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 0,
+          "graphFindings": []
+        },
+        {
+          "defect": "missing_claim_requirement",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 0,
+          "graphFindings": []
+        },
+        {
+          "defect": "stale_revision",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "missing_validity_assessment",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "unverified_artifact_ref",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "critical_open_finding",
+          "detected": true,
+          "expectedGate": "blocked",
+          "gateMatchesExpected": true,
+          "gate": "blocked",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "unapproved_residual_risk",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "policy_version_mismatch",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "duplicate_evidence_vote",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "retired_evidence",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "unapproved_risk_record",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "unknown_declared_change",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "registry_environment_mismatch",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 1,
+          "graphFindings": []
+        }
+      ],
+      "staleness": [
+        {
+          "kind": "revision",
+          "detected": true,
+          "gate": "review-required"
+        },
+        {
+          "kind": "declared_dependency",
+          "detected": true,
+          "gate": "review-required"
+        },
+        {
+          "kind": "ir_requirement",
+          "detected": true,
+          "gate": "review-required"
+        },
+        {
+          "kind": "ir_boundary",
+          "detected": true,
+          "gate": "review-required"
+        }
+      ],
+      "sampleImpact": {
+        "changed": [
+          "SR-003"
+        ],
+        "unknown": [],
+        "affected": [
+          "ARG-001",
+          "CA-001",
+          "CLAIM-001",
+          "EVD-001",
+          "RC-001",
+          "SR-003",
+          "VA-ORDER",
+          "VC-001"
+        ],
+        "evidence": [
+          "EVD-001"
+        ],
+        "claims": [
+          "CLAIM-001"
+        ]
+      }
+    },
+    {
+      "fixture": "pilot_multistage_approval.json",
+      "requirements": 2,
+      "traceComplete": 2,
+      "cleanFlagged": false,
+      "cleanGate": "ready",
+      "defects": [
+        {
+          "defect": "missing_threat_control",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "missing_evidence_origin",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "missing_claim_requirement",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 1,
+          "graphFindings": []
+        },
+        {
+          "defect": "stale_revision",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 2,
+          "graphFindings": []
+        },
+        {
+          "defect": "missing_validity_assessment",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 2,
+          "graphFindings": []
+        },
+        {
+          "defect": "unverified_artifact_ref",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 2,
+          "graphFindings": []
+        },
+        {
+          "defect": "critical_open_finding",
+          "detected": true,
+          "expectedGate": "blocked",
+          "gateMatchesExpected": true,
+          "gate": "blocked",
+          "traceComplete": 2,
+          "graphFindings": []
+        },
+        {
+          "defect": "unapproved_residual_risk",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 2,
+          "graphFindings": []
+        },
+        {
+          "defect": "policy_version_mismatch",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 2,
+          "graphFindings": []
+        },
+        {
+          "defect": "duplicate_evidence_vote",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 2,
+          "graphFindings": []
+        },
+        {
+          "defect": "retired_evidence",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 2,
+          "graphFindings": []
+        },
+        {
+          "defect": "unapproved_risk_record",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 2,
+          "graphFindings": []
+        },
+        {
+          "defect": "unknown_declared_change",
+          "detected": true,
+          "expectedGate": "unknown",
+          "gateMatchesExpected": true,
+          "gate": "unknown",
+          "traceComplete": 2,
+          "graphFindings": []
+        },
+        {
+          "defect": "registry_environment_mismatch",
+          "detected": true,
+          "expectedGate": "review-required",
+          "gateMatchesExpected": true,
+          "gate": "review-required",
+          "traceComplete": 2,
+          "graphFindings": []
+        }
+      ],
+      "staleness": [
+        {
+          "kind": "revision",
+          "detected": true,
+          "gate": "review-required"
+        },
+        {
+          "kind": "declared_dependency",
+          "detected": true,
+          "gate": "review-required"
+        },
+        {
+          "kind": "ir_requirement",
+          "detected": true,
+          "gate": "review-required"
+        },
+        {
+          "kind": "ir_boundary",
+          "detected": true,
+          "gate": "review-required"
+        }
+      ],
+      "sampleImpact": {
+        "changed": [
+          "SR-003"
+        ],
+        "unknown": [],
+        "affected": [
+          "ARG-001",
+          "CA-001",
+          "CLAIM-001",
+          "EVD-001",
+          "RC-001",
+          "SR-003",
+          "VA-ORDER",
+          "VC-001"
+        ],
+        "evidence": [
+          "EVD-001"
+        ],
+        "claims": [
+          "CLAIM-001"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "requirements": 4,
+    "traceComplete": 4,
+    "injectedDefects": 42,
+    "detectedDefects": 42,
+    "cleanCasesFlagged": 0,
+    "cleanCases": 3,
+    "stalenessScenarios": 12,
+    "detectedStaleness": 12,
+    "gateMatchesExpected": 42
+  }
+}

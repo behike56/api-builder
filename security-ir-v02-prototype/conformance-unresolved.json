@@ -1,0 +1,25 @@
+{
+  "conclusion": "indeterminate",
+  "reportVersion": "0.1.0",
+  "targetSpecification": "security-design-ir@0.2.0-rc1",
+  "profile": "review",
+  "modelDigestSHA256": "b7d02cab7fd004b5ce3f99f7c957b5802c9d5378cbd20eab50b1ba958c9b4336",
+  "summary": {
+    "findings": 2,
+    "errors": 0
+  },
+  "findings": [
+    {
+      "code": "external-reference-unresolved",
+      "target": "CA-001",
+      "detail": "security-controls@0.1.0:object-authz",
+      "severity": "warning"
+    },
+    {
+      "code": "external-reference-unresolved",
+      "target": "PA-001",
+      "detail": "security-patterns@0.1.0:P1-03",
+      "severity": "warning"
+    }
+  ]
+}
